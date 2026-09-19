@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Quest Runner · Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>Token run</span></div>
+      <div class="connection" id="connection"><span class="dot"></span><span id="connection-label">Connecting…</span></div>
+    </header>
+
+    <section class="card entry-card" aria-labelledby="entry-title">
+      <div class="section-heading"><div><p class="eyebrow">QUEST RUNNER</p><h1 id="entry-title">Token run</h1></div><span class="local-pill">🔒 Local dashboard</span></div>
+      <p class="subcopy">Paste your token and press Run. The runner starts locally and live output appears below. The token is not saved to a file.</p>
+      <form id="run-form" autocomplete="off">
+        <label for="token">Token</label>
+        <div class="token-wrap">
+          <input type="password" id="token" name="token" placeholder="Paste token here" required minlength="20" maxlength="500" autocomplete="off" spellcheck="false" autocapitalize="off" autocorrect="off">
+          <button class="reveal" type="button" id="reveal" aria-label="Show token">Show</button>
+        </div>
+        <button type="submit" class="run-button" id="run-button"><span class="button-icon">▶</span><span id="run-label">Run</span></button>
+      </form>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+      <p class="fine-print">Only enter a token you own. This automation may be unsupported by Discord; a finished run does not guarantee quest rewards.</p>
+    </section>
+
+    <section class="card runs-card" aria-labelledby="runs-title">
+      <div class="runs-header"><div><p class="eyebrow">ACTIVITY</p><h2 id="runs-title">Live runs <span id="run-count" class="count">0</span></h2></div><button class="secondary-button" id="clear-button" type="button">Clear finished</button></div>
+      <div class="empty" id="empty"><span class="empty-icon">⌁</span><p>No runs yet. Paste a token above and press Run.</p></div>
+      <div id="runs" class="runs-list" aria-live="polite"></div>
+    </section>
+    <footer>Runs are shown in this browser while the local dashboard is open. Do not share tokens or console logs containing private information.</footer>
+  </main>
+</body>
+</html>
